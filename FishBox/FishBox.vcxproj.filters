@@ -35,16 +35,16 @@
     <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox-Importer\FishBox\FSHMesh.cpp">
+    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox-Importer\FishBox\FSHModel.cpp">
+    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox-Importer\FishBox\FishBox.cpp">
+    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox-Importer\FishBox\FSHMaterial.cpp">
+    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
