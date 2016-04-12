@@ -18,33 +18,33 @@
     <Text Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\stdafx.h">
+    <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\targetver.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.h">
+    <ClInclude Include="FishBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\stdafx.cpp">
+    <ClCompile Include="FSHMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\dllmain.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.cpp">
+    <ClCompile Include="FSHModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMaterial.cpp">
+    <ClCompile Include="FSHMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMesh.cpp">
+    <ClCompile Include="FishBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHModel.cpp">
+    <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

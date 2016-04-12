@@ -1,1 +1,105 @@
-﻿
+﻿  dllmain.cpp
+  FSHModel.cpp
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(22): warning C4251: 'FSHMaterial::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(23): warning C4251: 'FSHMaterial::textureFilePath': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(24): warning C4251: 'FSHMaterial::normalFilePAth': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(55): warning C4251: 'FSHMesh::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(56): warning C4251: 'FSHMesh::vertexVector': class 'std::vector<FSHVertexData,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+          with
+          [
+              _Ty=FSHVertexData
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(86): warning C4251: 'FSHModel::MeshList': class 'std::vector<FSHMesh,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMesh
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(87): warning C4251: 'FSHModel::MaterialList': class 'std::vector<FSHMaterial,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMaterial
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(109): warning C4251: 'FishBox::ModelList': class 'std::vector<FSHModel,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FishBox'
+          with
+          [
+              _Ty=FSHModel
+          ]
+  FSHMesh.cpp
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(22): warning C4251: 'FSHMaterial::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(23): warning C4251: 'FSHMaterial::textureFilePath': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(24): warning C4251: 'FSHMaterial::normalFilePAth': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(55): warning C4251: 'FSHMesh::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(56): warning C4251: 'FSHMesh::vertexVector': class 'std::vector<FSHVertexData,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+          with
+          [
+              _Ty=FSHVertexData
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(86): warning C4251: 'FSHModel::MeshList': class 'std::vector<FSHMesh,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMesh
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(87): warning C4251: 'FSHModel::MaterialList': class 'std::vector<FSHMaterial,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMaterial
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(109): warning C4251: 'FishBox::ModelList': class 'std::vector<FSHModel,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FishBox'
+          with
+          [
+              _Ty=FSHModel
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fshmesh.cpp(19): warning C4018: '<': signed/unsigned mismatch
+  FSHMaterial.cpp
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(22): warning C4251: 'FSHMaterial::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(23): warning C4251: 'FSHMaterial::textureFilePath': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(24): warning C4251: 'FSHMaterial::normalFilePAth': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(55): warning C4251: 'FSHMesh::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(56): warning C4251: 'FSHMesh::vertexVector': class 'std::vector<FSHVertexData,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+          with
+          [
+              _Ty=FSHVertexData
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(86): warning C4251: 'FSHModel::MeshList': class 'std::vector<FSHMesh,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMesh
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(87): warning C4251: 'FSHModel::MaterialList': class 'std::vector<FSHMaterial,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMaterial
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(109): warning C4251: 'FishBox::ModelList': class 'std::vector<FSHModel,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FishBox'
+          with
+          [
+              _Ty=FSHModel
+          ]
+  FishBox.cpp
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(22): warning C4251: 'FSHMaterial::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(23): warning C4251: 'FSHMaterial::textureFilePath': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(24): warning C4251: 'FSHMaterial::normalFilePAth': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMaterial'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(55): warning C4251: 'FSHMesh::materialName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(56): warning C4251: 'FSHMesh::vertexVector': class 'std::vector<FSHVertexData,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHMesh'
+          with
+          [
+              _Ty=FSHVertexData
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(86): warning C4251: 'FSHModel::MeshList': class 'std::vector<FSHMesh,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMesh
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(87): warning C4251: 'FSHModel::MaterialList': class 'std::vector<FSHMaterial,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FSHModel'
+          with
+          [
+              _Ty=FSHMaterial
+          ]
+c:\users\pc\documents\visual studio 2015\projects\importer\fishbox\fishbox.h(109): warning C4251: 'FishBox::ModelList': class 'std::vector<FSHModel,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'FishBox'
+          with
+          [
+              _Ty=FSHModel
+          ]
+  Generating Code...
+     Creating library C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.lib and object C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.exp
+  FishBox.vcxproj -> C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.dll

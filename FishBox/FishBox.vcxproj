@@ -145,12 +145,12 @@
     <Text Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.h" />
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\stdafx.h" />
-    <ClInclude Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\targetver.h" />
+    <ClInclude Include="FishBox.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\dllmain.cpp">
+    <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -164,11 +164,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.cpp" />
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMaterial.cpp" />
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHMesh.cpp" />
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FSHModel.cpp" />
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\stdafx.cpp">
+    <ClCompile Include="FishBox.cpp" />
+    <ClCompile Include="FSHMaterial.cpp" />
+    <ClCompile Include="FSHMesh.cpp" />
+    <ClCompile Include="FSHModel.cpp" />
+    <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
