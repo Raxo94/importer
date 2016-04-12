@@ -23,7 +23,7 @@ FishBox::FishBox()
 
 void FishBox::Test()
 {
-	printf("Get pikachuu");
+	printf("Get pikachuuu");
 }
 
 void FishBox::LoadModel()
