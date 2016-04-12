@@ -32,9 +32,6 @@
     <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\FishBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\GitHub%27\LitetSpel\FishBox\FishBox\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
