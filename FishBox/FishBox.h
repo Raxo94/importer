@@ -89,12 +89,12 @@ private: //structs
 	};
 
 private: //variables 
+	std::ifstream * infile;
+
 	mesh meshHEADER;
-	std::string materialName;
 	std::vector<FSHVertexData> vertexVector;
 	unsigned int* indices = nullptr;
-	unsigned int vertexCount;
-	unsigned int indexCount;
+	vertexData * vertices = nullptr;
 
 private: //functions
 	void loadVertexData();
@@ -102,7 +102,7 @@ private: //functions
 
 public: //functiuons
 	FSHMesh(void);
-	FSHMesh(std::istream* infile);
+	FSHMesh(std::ifstream* infile);
 	~FSHMesh(void);
 	unsigned int getVertexCount();
 	std::vector<FSHVertexData>& GetVertices();

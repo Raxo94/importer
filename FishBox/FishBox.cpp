@@ -17,7 +17,7 @@
 
 FishBox::FishBox()
 {
-	this->LoadModel(".\Models\TestBin.FSH");
+	this->LoadScene(".\Scenes\TestBin.FSH");
 	return;
 }
 
@@ -26,26 +26,14 @@ void FishBox::Test()
 	printf("Get pikachuuu");
 }
 
-void FishBox::LoadModel(char * filePath)
+void FishBox::LoadScene(char * filePath)
 {
-	
-
-	//TEMP
-	FSHModel tmodel;
-	this->ModelList.push_back(tmodel);
-	//ENDTEMP
-
-	
-
-	FSHModel tempModel(filePath);
-
-
-
-	
+	SceneCount++;
+	FSHScene tempScene(filePath);
 }
 
 
-std::vector<FSHModel>& FishBox::GetModelList()
+std::vector<FSHScene>& FishBox::GetSceneList()
 {
-	return this->ModelList;
+	//return this->SceneList;
 }

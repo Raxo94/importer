@@ -7,28 +7,14 @@
 
 void FSHMesh::loadVertexData()
 {
-	this->vertexCount = 4;
-	FSHVertexData LVertices[] =
-	{
-		-0.5f,  0.5f, 1.0f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, // Top-left
-		0.5f,  0.5f, 0.0f, 0.5f,  0.5f, 0.0f, 1.0f , 1.0f, // Top-right
-		0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 1.0f , 1.0f, // Bottom-right
-		-0.5f, -0.5f, 1.0f, -0.5f, -0.5f, 1.0f, 1.0f,1.0f// Bottom-left
-	};
-
-	for (int vertIndex = 0; vertIndex < this->vertexCount; vertIndex++)
-	{
-		this->vertexVector.push_back(LVertices[vertIndex]);
-
-	}
-
-
+	vertices = new vertexData[meshHEADER.vertexCount];
+	infile->read((char*)vertices, sizeof(vertexData)*meshHEADER.vertexCount);
 }
 
 void FSHMesh::loadIndices()
 {
-	this->indexCount = 6;
-	this->indices[0, 1, 2, 2, 3, 0];
+	indices = new unsigned int[meshHEADER.indexCount];
+	infile->read((char*)indices, sizeof(unsigned int)*meshHEADER.indexCount);
 }
 
 FSHMesh::FSHMesh(void)
@@ -37,12 +23,14 @@ FSHMesh::FSHMesh(void)
 	this->loadIndices();
 }
 
-FSHMesh::FSHMesh(std::istream * infile)
+FSHMesh::FSHMesh(std::ifstream * infile)
 {
-	infile->read((char*)&meshHEADER, sizeof(mesh));
+	this->infile = infile;
 
-
-
+	this->infile->read((char*)&meshHEADER, sizeof(mesh));
+	this->loadVertexData();
+	this->loadIndices();
+	//this->materialName = meshHEADER.materialName; //later
 }
 
 FSHMesh::~FSHMesh(void)
@@ -54,7 +42,7 @@ FSHMesh::~FSHMesh(void)
 
 unsigned int FSHMesh::getVertexCount()
 {
-	return this->vertexCount;
+	return this->meshHEADER.vertexCount;
 }
 
 std::vector<FSHVertexData>& FSHMesh::GetVertices()
@@ -65,7 +53,7 @@ std::vector<FSHVertexData>& FSHMesh::GetVertices()
 
 unsigned int FSHMesh::getIndexCount()
 {
-	return this->indexCount;
+	return this->meshHEADER.indexCount;
 }
 
 

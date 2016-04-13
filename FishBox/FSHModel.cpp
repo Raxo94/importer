@@ -39,7 +39,6 @@ FSHModel::FSHModel(void)
 
 FSHModel::FSHModel(char * filePath)
 {
-
 	infile = new std::ifstream;
 
 	infile->open(filePath, std::ifstream::binary);
@@ -47,7 +46,7 @@ FSHModel::FSHModel(char * filePath)
 
 	LoadMeshes();
 
-
+	infile->close();
 }
 
 
