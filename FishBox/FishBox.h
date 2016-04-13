@@ -174,12 +174,3 @@ public: //variables
 public: //functions 
 
 };
-
-
-
-
-
-
-//extern FISHBOX_API int nFishBox;
-//
-//FISHBOX_API int fnFishBox(void);

@@ -5,15 +5,6 @@
 #include "FishBox.h"
 
 
-//// This is an example of an exported variable
-//FISHBOX_API int nFishBox=0;
-//
-//// This is an example of an exported function.
-//FISHBOX_API int fnFishBox(void)
-//{
-//    return 42;
-//}
-
 
 FishBox::FishBox()
 {
@@ -24,6 +15,13 @@ FishBox::FishBox()
 void FishBox::Test()
 {
 	printf("Get pikachuuu");
+}
+
+
+void FishBox::LoadScene(char * filePath)
+{
+	SceneCount++;
+	FSHScene tempScene(filePath);
 }
 
 
