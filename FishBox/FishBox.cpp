@@ -41,7 +41,6 @@ void FishBox::MeshData(unsigned int model, unsigned int mesh, vertexData * verte
 	if (model > SceneList.size() || mesh > SceneList[model].GetMeshCount())
 	{
 		printf("No model or mesh at index");
-		return;
 	}
 
 	vertexData = SceneList[model].GetMeshList()[mesh].GetVertices();
