@@ -54,7 +54,7 @@ private: //structs
 private: //variables 
 	std::string materialName;
 	std::vector<FSHVertexData> vertexVector;
-	unsigned int* indices = nullptr;
+	std::vector<unsigned int> indices;
 	unsigned int vertexCount;
 	unsigned int indexCount;
 
@@ -67,7 +67,10 @@ public: //functiuons
 	~FSHMesh(void);
 	unsigned int getVertexCount();
 	std::vector<FSHVertexData>& GetVertices();
+	std::vector<unsigned int> getIndices();
 	unsigned int getIndexCount();
+	void Test();
+	
 	//getUVs();
 	//getMaterial();
 	//getTexture();
@@ -91,7 +94,7 @@ private:
 public:
 	FSHModel(void);
 	unsigned int GetMeshCount();
-	std::vector<FSHMesh>& GetMeshList();
+	std::vector<FSHMesh> GetMeshList();
 	std::vector<FSHMaterial>& GetMaterialList();
 	void Release();
 };

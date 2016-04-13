@@ -30,7 +30,7 @@ unsigned int FSHModel::GetMeshCount()
 	return MeshList.size();
 }
 
-std::vector<FSHMesh>& FSHModel::GetMeshList()
+std::vector<FSHMesh> FSHModel::GetMeshList()
 {
 	return this->MeshList;
 }

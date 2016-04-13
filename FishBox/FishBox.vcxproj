@@ -93,6 +93,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy C:\Users\Swing\Documents\school\GitHub'\LitetSpel\FishBox\FishBox\FishBox.h  C:\Users\Swing\Documents\school\GitHub'\LitetSpel\Fishy\ProjectSDL2.1\include\FishBox.h
+copy C:\Users\Swing\Documents\school\GitHub'\LitetSpel\FishBox\Debug\FishBox.lib C:\Users\Swing\Documents\school\GitHub'\LitetSpel\Fishy\ProjectSDL2.1\lib\FishBox.lib 
+copy C:\Users\Swing\Documents\school\GitHub'\LitetSpel\FishBox\Debug\FishBox.dll C:\Users\Swing\Documents\school\GitHub'\LitetSpel\Fishy\ProjectSDL2.1\FishBox.dll</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

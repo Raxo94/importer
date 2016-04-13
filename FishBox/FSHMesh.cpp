@@ -28,7 +28,12 @@ void FSHMesh::loadVertexData()
 void FSHMesh::loadIndices()
 {
 	this->indexCount = 6;
-	this->indices[0, 1, 2, 2, 3, 0];
+	unsigned int readFrom[] = { 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+
+	for  (unsigned int i = 0; i < 6; i++)
+	{
+		this->indices.push_back(readFrom[i]);
+	}
 }
 
 FSHMesh::FSHMesh(void)
@@ -55,9 +60,20 @@ std::vector<FSHVertexData>& FSHMesh::GetVertices()
 	return this->vertexVector;
 }
 
+std::vector<unsigned int> FSHMesh::getIndices()
+{
+
+	return this->indices;
+}
+
 unsigned int FSHMesh::getIndexCount()
 {
 	return this->indexCount;
+}
+
+void FSHMesh::Test()
+{
+	printf("Hello its me i was wondering if after\n");
 }
 
 
