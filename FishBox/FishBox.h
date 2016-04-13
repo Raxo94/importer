@@ -19,59 +19,25 @@
 #include <io.h>
 //#include "GLUtil.h"
 
-
-class FISHBOX_API FSHMaterial
+namespace FSHData
 {
-private:
-	struct material
+
+	struct fileHeader
 	{
-		char materialName[256];
-		char textureFilePath[256];
-		char normalFilePath[256];
-
-		float ambient[3];
-		float diffuse[3];
-		float spec[3];
-		float shinyness;
+		unsigned int meshCount;
+		unsigned int materialCount;
+		unsigned int directionalLightCount;
+		unsigned int pointLightCount;
+		unsigned int areaLightCount;
+		unsigned int cameraCount;
 	};
-
-private: //variables
-	std::string materialName = "MaterialName";
-	std::string textureFilePath;
-	std::string normalFilePAth;
-	float ambient[3];
-	float diffuse[3];
-	float specular[3];
-	float shinyValue;
-public: //functions
-	FSHMaterial(void);
-	std::string getMaterialName();
-	std::string getTextureFilePath();
-	float* getAmbient();
-	float* getDiffuse();
-	float* getSpecular();
-	float getShinyness();
-};
-
-
-
-struct FSHVertexData
-{
-	float pos[3];
-	float normal[3];
-	float uv[2];
-};
-
-
-
-class FISHBOX_API FSHMesh {
-private: //structs
 	struct mesh
 	{
 		char materialName[256];
 		unsigned int vertexCount;
 		unsigned int blendshapesCount;
 		unsigned int indexCount;
+
 	};
 	struct vertexData
 	{
@@ -87,12 +53,55 @@ private: //structs
 	{
 		float pos[3];
 	};
+	struct material
+	{
+		char materialName[256];
+		char textureFilePath[256];
+		char normalFilePath[256];
+
+		float ambient[3];
+		float diffuse[3];
+		float spec[3];
+		float shinyness;
+	};
+	struct directionalLight
+	{
+		float intensity;
+		float lightColor;
+		float direction[3];
+	};
+	struct pointLight
+	{
+		float intensity;
+		float lightColor;
+		float pos[3];
+	};
+	struct areaLight
+	{
+		float intensity;
+		float lightColor;
+		float pos[3];
+		float direction[3];
+		float scale[3];
+	};
+	struct camera
+	{
+		float pos[3];
+		float rotation[3];
+		float target[3];
+		float upVec[3];
+	};
+
+}
+
+using namespace FSHData;
+
+class FISHBOX_API FSHMesh {
 
 private: //variables 
 	std::ifstream * infile;
 
 	mesh meshHEADER;
-	std::vector<FSHVertexData> vertexVector;
 	unsigned int* indices = nullptr;
 	vertexData * vertices = nullptr;
 
@@ -104,8 +113,10 @@ public: //functiuons
 	FSHMesh(void);
 	FSHMesh(std::ifstream* infile);
 	~FSHMesh(void);
+
+	unsigned int * GetIndices();
+	vertexData * GetVertices();
 	unsigned int getVertexCount();
-	std::vector<FSHVertexData>& GetVertices();
 	unsigned int getIndexCount();
 	//getUVs();
 	//getMaterial();
@@ -116,21 +127,8 @@ public: //functiuons
 
 
 
-
-
-
-class FISHBOX_API FSHModel
+class FISHBOX_API FSHScene
 {
-private: 
-	struct fileHeader
-	{
-		unsigned int meshCount;
-		unsigned int materialCount;
-		unsigned int directionalLightCount;
-		unsigned int pointLightCount;
-		unsigned int areaLightCount;
-		unsigned int cameraCount;
-	};
 
 private:
 	fileHeader HEADER;
@@ -138,18 +136,17 @@ private:
 	FSHMesh * meshes;
 
 
-	std::vector <FSHMesh> MeshList;
-	std::vector<FSHMaterial> MaterialList;
+
 private:
 
 	void LoadMeshes();
 	void LoadMaterials();
 public:
-	FSHModel(void);
-	FSHModel(char * filePath);
+	FSHScene(void);
+	FSHScene(char * filePath);
 	unsigned int GetMeshCount();
-	std::vector<FSHMesh>& GetMeshList();
-	std::vector<FSHMaterial>& GetMaterialList();
+	FSHMesh * GetMeshList();
+
 	void Release();
 };
 
@@ -166,16 +163,15 @@ private:
 
 private: //varaibles
 	
-	unsigned int modelCount = 0;
-	FSHModel * Models;
-	std::vector<FSHModel> ModelList;
+	unsigned int SceneCount = 0;
+	FSHScene * Scenes;
+	std::vector<FSHScene> SceneList;
 public: //variables
 	FishBox(void);
 	void Test();
-	void LoadModel(char * filePath);
+	void LoadScene(char * filePath);
 
 public: //functions 
-	std::vector<FSHModel>& GetModelList();
 
 };
 

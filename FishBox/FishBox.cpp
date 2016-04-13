@@ -26,14 +26,9 @@ void FishBox::Test()
 	printf("Get pikachuuu");
 }
 
+
 void FishBox::LoadScene(char * filePath)
 {
 	SceneCount++;
 	FSHScene tempScene(filePath);
-}
-
-
-std::vector<FSHScene>& FishBox::GetSceneList()
-{
-	//return this->SceneList;
 }

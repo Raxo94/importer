@@ -35,16 +35,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FSHModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FSHMaterial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FishBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FSHScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

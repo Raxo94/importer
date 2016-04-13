@@ -36,7 +36,8 @@ FSHMesh::FSHMesh(std::ifstream * infile)
 FSHMesh::~FSHMesh(void)
 {
 	//if (this->vertexVector!=nullptr)
-	//delete this->vertexVector;
+	delete[] indices;
+	delete[] vertices;
 }
 
 
@@ -45,11 +46,16 @@ unsigned int FSHMesh::getVertexCount()
 	return this->meshHEADER.vertexCount;
 }
 
-std::vector<FSHVertexData>& FSHMesh::GetVertices()
+vertexData * FSHMesh::GetVertices()
 {
-
-	return this->vertexVector;
+	return vertices;
 }
+
+unsigned int * FSHMesh::GetIndices()
+{
+	return indices;
+}
+
 
 unsigned int FSHMesh::getIndexCount()
 {
