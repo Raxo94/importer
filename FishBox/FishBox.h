@@ -89,6 +89,7 @@ private: //structs
 	};
 
 private: //variables 
+	mesh meshHEADER;
 	std::string materialName;
 	std::vector<FSHVertexData> vertexVector;
 	unsigned int* indices = nullptr;
@@ -101,6 +102,7 @@ private: //functions
 
 public: //functiuons
 	FSHMesh(void);
+	FSHMesh(std::istream* infile);
 	~FSHMesh(void);
 	unsigned int getVertexCount();
 	std::vector<FSHVertexData>& GetVertices();
@@ -131,13 +133,20 @@ private:
 	};
 
 private:
+	fileHeader HEADER;
+	std::ifstream * infile;
+	FSHMesh * meshes;
+
+
 	std::vector <FSHMesh> MeshList;
 	std::vector<FSHMaterial> MaterialList;
 private:
+
 	void LoadMeshes();
 	void LoadMaterials();
 public:
 	FSHModel(void);
+	FSHModel(char * filePath);
 	unsigned int GetMeshCount();
 	std::vector<FSHMesh>& GetMeshList();
 	std::vector<FSHMaterial>& GetMaterialList();
@@ -152,8 +161,13 @@ public:
 
 
 class FISHBOX_API FishBox {
+private:
+
 
 private: //varaibles
+	
+	unsigned int modelCount = 0;
+	FSHModel * Models;
 	std::vector<FSHModel> ModelList;
 public: //variables
 	FishBox(void);

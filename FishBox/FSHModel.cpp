@@ -8,8 +8,20 @@
 
 void FSHModel::LoadMeshes()
 {
+	//TEMP
 	FSHMesh meshT;
 	MeshList.push_back(meshT);
+	//ENDTEMP
+
+	meshes = new FSHMesh[HEADER.meshCount];// create the meshlist
+	
+
+	for (int i = 0; i < HEADER.meshCount; i++) //send the filestream to each mesh, in order
+	{
+		meshes[i] = FSHMesh(infile);
+	}
+
+
 }
 
 void FSHModel::LoadMaterials()
@@ -24,6 +36,20 @@ FSHModel::FSHModel(void)
 	this->LoadMaterials();
 	return;
 }
+
+FSHModel::FSHModel(char * filePath)
+{
+
+	infile = new std::ifstream;
+
+	infile->open(filePath, std::ifstream::binary);
+	infile->read((char*)&HEADER, sizeof(fileHeader));
+
+	LoadMeshes();
+
+
+}
+
 
 unsigned int FSHModel::GetMeshCount()
 {
@@ -40,6 +66,7 @@ std::vector<FSHMaterial>& FSHModel::GetMaterialList()
 {
 	return this->MaterialList;
 }
+
 
 void FSHModel::Release()
 {

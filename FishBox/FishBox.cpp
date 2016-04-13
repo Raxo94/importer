@@ -17,7 +17,7 @@
 
 FishBox::FishBox()
 {
-	this->LoadModel();
+	this->LoadModel(".\Models\TestBin.FSH");
 	return;
 }
 
@@ -26,11 +26,22 @@ void FishBox::Test()
 	printf("Get pikachuuu");
 }
 
-void FishBox::LoadModel()
+void FishBox::LoadModel(char * filePath)
 {
+	
+
+	//TEMP
 	FSHModel tmodel;
 	this->ModelList.push_back(tmodel);
+	//ENDTEMP
 
+	
+
+	FSHModel tempModel(filePath);
+
+
+
+	
 }
 
 

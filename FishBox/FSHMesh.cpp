@@ -37,6 +37,14 @@ FSHMesh::FSHMesh(void)
 	this->loadIndices();
 }
 
+FSHMesh::FSHMesh(std::istream * infile)
+{
+	infile->read((char*)&meshHEADER, sizeof(mesh));
+
+
+
+}
+
 FSHMesh::~FSHMesh(void)
 {
 	//if (this->vertexVector!=nullptr)
