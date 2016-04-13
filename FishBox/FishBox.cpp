@@ -8,7 +8,9 @@
 
 FishBox::FishBox()
 {
-	this->LoadScene(".\Scenes\TestBin.FSH");
+	unsigned int temp;
+
+	this->LoadScene(".\Scenes\TestBin.FSH", temp);
 	return;
 }
 
@@ -18,15 +20,30 @@ void FishBox::Test()
 }
 
 
-void FishBox::LoadScene(char * filePath)
+
+void FishBox::LoadScene(char * filePath, unsigned int& meshCount) //meshCount will be set to the amount of meshes in the scene
 {
-	SceneCount++;
+
 	FSHScene tempScene(filePath);
+
+	SceneList.push_back(tempScene);
+	meshCount = tempScene.GetMeshCount();
+
 }
 
-
-void FishBox::LoadScene(char * filePath)
+int FishBox::GetSceneCount()
 {
-	SceneCount++;
-	FSHScene tempScene(filePath);
+	return SceneList.size();
+}
+
+void FishBox::MeshData(unsigned int model, unsigned int mesh, vertexData * vertexData, unsigned int * indexData)
+{
+	if (model > SceneList.size() || mesh > SceneList[model].GetMeshCount())
+	{
+		printf("No model or mesh at index");
+		return;
+	}
+
+	vertexData = SceneList[model].GetMeshList()[mesh].GetVertices();
+	indexData = SceneList[model].GetMeshList()[mesh].GetIndices();
 }

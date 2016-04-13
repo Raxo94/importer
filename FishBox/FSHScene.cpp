@@ -20,9 +20,7 @@ void FSHScene::LoadMaterials()
 
 FSHScene::FSHScene(void)
 {
-	this->LoadMeshes();
-	this->LoadMaterials();
-	return;
+
 }
 
 FSHScene::FSHScene(char * filePath)
@@ -37,7 +35,6 @@ FSHScene::FSHScene(char * filePath)
 	infile->close();
 }
 
-
 unsigned int FSHScene::GetMeshCount()
 {
 	return HEADER.meshCount;
@@ -47,9 +44,6 @@ FSHMesh * FSHScene::GetMeshList()
 {
 	return meshes;
 }
-
-
-
 
 void FSHScene::Release()
 {

@@ -134,18 +134,19 @@ private:
 	fileHeader HEADER;
 	std::ifstream * infile;
 	FSHMesh * meshes;
-
+	char*SCENE_ID;
 
 
 private:
 
 	void LoadMeshes();
 	void LoadMaterials();
-public:
 	FSHScene(void);
+public:
 	FSHScene(char * filePath);
 	unsigned int GetMeshCount();
 	FSHMesh * GetMeshList();
+
 
 	void Release();
 };
@@ -169,8 +170,9 @@ private: //varaibles
 public: //variables
 	FishBox(void);
 	void Test();
-	void LoadScene(char * filePath);
-
+	int GetSceneCount();
+	void LoadScene(char * filePath, unsigned int& meshCount);
+	void MeshData(unsigned int model, unsigned int mesh, vertexData * vertexData, unsigned int * indexData);
 public: //functions 
 
 };
