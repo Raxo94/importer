@@ -13,11 +13,28 @@
 #include <vector>
 #include <iostream>
 #include "stdio.h"
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <io.h>
 //#include "GLUtil.h"
 
 
 class FISHBOX_API FSHMaterial
 {
+private:
+	struct material
+	{
+		char materialName[256];
+		char textureFilePath[256];
+		char normalFilePath[256];
+
+		float ambient[3];
+		float diffuse[3];
+		float spec[3];
+		float shinyness;
+	};
+
 private: //variables
 	std::string materialName = "MaterialName";
 	std::string textureFilePath;
@@ -49,7 +66,27 @@ struct FSHVertexData
 
 class FISHBOX_API FSHMesh {
 private: //structs
-
+	struct mesh
+	{
+		char materialName[256];
+		unsigned int vertexCount;
+		unsigned int blendshapesCount;
+		unsigned int indexCount;
+	};
+	struct vertexData
+	{
+		float pos[3];
+		float normal[3];
+		float uv[2];
+	};
+	struct index
+	{
+		unsigned int vertexIndex;
+	};
+	struct blendShape
+	{
+		float pos[3];
+	};
 
 private: //variables 
 	std::string materialName;
@@ -82,6 +119,17 @@ public: //functiuons
 
 class FISHBOX_API FSHModel
 {
+private: 
+	struct fileHeader
+	{
+		unsigned int meshCount;
+		unsigned int materialCount;
+		unsigned int directionalLightCount;
+		unsigned int pointLightCount;
+		unsigned int areaLightCount;
+		unsigned int cameraCount;
+	};
+
 private:
 	std::vector <FSHMesh> MeshList;
 	std::vector<FSHMaterial> MaterialList;
@@ -110,7 +158,7 @@ private: //varaibles
 public: //variables
 	FishBox(void);
 	void Test();
-	void LoadModel(/*std::string FilePath*/);
+	void LoadModel(char * filePath);
 
 public: //functions 
 	std::vector<FSHModel>& GetModelList();
