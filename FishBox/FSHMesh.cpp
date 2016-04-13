@@ -19,8 +19,7 @@ void FSHMesh::loadIndices()
 
 FSHMesh::FSHMesh(void)
 {
-	this->loadVertexData();
-	this->loadIndices();
+	//NEVER USE
 }
 
 FSHMesh::FSHMesh(std::ifstream * infile)
@@ -28,6 +27,8 @@ FSHMesh::FSHMesh(std::ifstream * infile)
 	this->infile = infile;
 
 	this->infile->read((char*)&meshHEADER, sizeof(mesh));
+
+
 	this->loadVertexData();
 	this->loadIndices();
 	//this->materialName = meshHEADER.materialName; //later

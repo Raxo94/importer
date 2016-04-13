@@ -93,6 +93,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\FishBox\FishBox.h" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\include\FishBox.h"
+copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.dll" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\FishBox.dll"
+copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.lib" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\lib\FishBox.lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -123,6 +128,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\FishBox\FishBox.h" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\include\FishBox.h"
+copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.dll" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\FishBox.dll"
+copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.lib" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\lib\FishBox.lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

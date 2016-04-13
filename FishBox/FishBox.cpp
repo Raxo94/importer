@@ -10,7 +10,7 @@ FishBox::FishBox()
 {
 	unsigned int temp;
 
-	this->LoadScene(".\Scenes\TestBin.FSH", temp);
+	this->LoadScene("Models/TestBin.FSH", temp);
 	return;
 }
 
@@ -38,7 +38,7 @@ int FishBox::GetSceneCount()
 
 void FishBox::MeshData(unsigned int model, unsigned int mesh, vertexData * vertexData, unsigned int * indexData)
 {
-	if (model > SceneList.size() || mesh > SceneList[model].GetMeshCount())
+	if (model >= SceneList.size() || mesh > SceneList[model].GetMeshCount())
 	{
 		printf("No model or mesh at index");
 	}
