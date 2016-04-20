@@ -22,7 +22,7 @@ FSHMesh::FSHMesh(void)
 	//NEVER USE
 }
 
-FSHMesh::FSHMesh(std::ifstream * infile)
+FSHMesh::FSHMesh(std::ifstream *& infile)
 {
 	this->infile = infile;
 
@@ -50,6 +50,11 @@ unsigned int FSHMesh::getVertexCount()
 vertexData * FSHMesh::GetVertices()
 {
 	return vertices;
+}
+
+mesh * FSHMesh::GetMeshData()
+{
+	return &meshHEADER;
 }
 
 unsigned int * FSHMesh::GetIndices()
