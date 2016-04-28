@@ -17,7 +17,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <io.h>
+
+#include <Windows.h>
+
+//Basic Util Includes
+#include <iostream>
+#include <vector>
+
+//OpenGL Includes
+#include <gl\glew.h>
+#include <glm\glm.hpp>
+#include <gl\GL.h>
+#include <glm\gtx\transform.hpp>
+
+//SDL Includes
+#include <SDL2\SDL.h>
+
+
 //#include "GLUtil.h"
+#include "SOIL.h"
 
 namespace FSHData
 {
@@ -91,6 +109,12 @@ namespace FSHData
 		float target[3];
 		float upVec[3];
 	};
+	struct texture
+	{
+		int height;
+		int width;
+		unsigned char * textureData;
+	};
 
 }
 
@@ -136,6 +160,9 @@ private:
 	fileHeader HEADER;
 	std::ifstream * infile;
 	std::vector<FSHMesh*> meshes;
+	std::vector<material*> materials;
+	std::vector<texture*> textures;
+	std::vector<std::string> textureNames;
 	char*SCENE_ID;
 
 
@@ -143,14 +170,16 @@ private:
 
 	void LoadMeshes();
 	void LoadMaterials();
+	void LoadTextures();
 	FSHScene(void);
 public:
 
 	FSHScene(char * filePath);
 	unsigned int GetMeshCount();
 	std::vector<FSHMesh*> GetMeshList();
-
-
+	std::vector<material*> GetMaterialList();
+	std::vector<texture*> GetTexureList();
+	std::vector<std::string> GetTexureNameList();
 	void Release();
 };
 
@@ -183,9 +212,10 @@ public: //functions
 	FSHData::mesh * MeshData(unsigned int model, unsigned int mesh);
 	FSHData::vertexData * VertexData(unsigned int model, unsigned int mesh);
 	unsigned int * IndexData(unsigned int model, unsigned int mesh);
-	unsigned int FishBox::ModelMeshCount(unsigned int model);
+	unsigned int ModelMeshCount(unsigned int model);
+	FSHData::material * meshMaterial(unsigned int model, unsigned int mesh);
+	texture* meshTexture(unsigned int model, unsigned int mesh);
 };
-
 #ifdef _DEBUG 
 #ifndef DBG_NEW
 #define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ ) 

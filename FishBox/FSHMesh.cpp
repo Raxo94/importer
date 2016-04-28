@@ -1,5 +1,3 @@
-
-
 #include "stdafx.h"
 #include "FishBox.h"
 
@@ -17,7 +15,7 @@ void FSHMesh::loadIndices()
 	infile->read((char*)indices, sizeof(unsigned int)*meshHEADER.indexCount);
 }
 
-FSHMesh::FSHMesh(void)
+FSHMesh::FSHMesh(void) //NEEEEEEEEVER USE!
 {
 	//NEVER USE
 }
@@ -31,7 +29,7 @@ FSHMesh::FSHMesh(std::ifstream *& infile)
 
 	this->loadVertexData();
 	this->loadIndices();
-	//this->materialName = meshHEADER.materialName; //later
+	
 }
 
 FSHMesh::~FSHMesh(void)

@@ -83,3 +83,45 @@ unsigned int FishBox::ModelMeshCount(unsigned int model)
 	return SceneList[model].GetMeshCount();
 }
 
+FSHData::material * FishBox::meshMaterial(unsigned int model, unsigned int mesh)
+{
+	for (int i = 0; i < SceneList[model].GetMaterialList().size(); i++)
+	{
+		//int mls = SceneList[model].GetMaterialList().size();
+
+		//FSHData::mesh * tmesh = MeshData(model, mesh);
+		//char* tsrting = SceneList[model].GetMaterialList()[i]->materialName;
+
+		//bool tbool = (std::string(SceneList[model].GetMaterialList()[i]->materialName).find(std::string(MeshData(model, mesh)->materialName)) != std::string::npos);
+		//if (tbool)
+		//	printf("TRUE");
+
+		if (std::string(SceneList[model].GetMaterialList()[i]->materialName).find(std::string(MeshData(model, mesh)->materialName)) != std::string::npos)
+			return SceneList[model].GetMaterialList()[i];
+		else if (SceneList[model].GetMaterialList().size() == 1)
+			return SceneList[model].GetMaterialList()[i];
+	}
+
+}
+
+texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
+{
+	for (int i = 0; i < SceneList[model].GetTexureNameList().size(); i++)
+	{
+
+		material * meshmaterial = meshMaterial(model, mesh);
+
+
+
+		//printf("\n");
+		//
+		//printf("\n%s", std::string(meshmaterial->textureFilePath).c_str());
+
+		//printf("\n");
+		if (std::string(std::string(meshmaterial->textureFilePath).c_str()).find(SceneList[model].GetTexureNameList()[i].c_str()) != std::string::npos)
+		{
+			return SceneList[model].GetTexureList()[i];
+		}
+	}
+}
+
