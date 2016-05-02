@@ -125,3 +125,18 @@ texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
 	}
 }
 
+void FishBox::clean() //cleans texture memory of all textures, use only after the textureData has been assigned
+{
+	for (int i = 0; i < extraTextures.size(); i++)
+		SOIL_free_image_data(extraTextures[i]->textureData);
+
+}
+
+texture * FishBox::loadTexure(char* filepath)
+{
+	FSHData::texture * tempTex = new texture;
+	tempTex->textureData = SOIL_load_image(filepath, &tempTex->width, &tempTex->height, 0, SOIL_LOAD_RGBA);
+
+	extraTextures.push_back(tempTex);
+	return tempTex;
+}
