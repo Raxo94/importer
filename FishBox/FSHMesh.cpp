@@ -15,6 +15,12 @@ void FSHMesh::loadIndices()
 	infile->read((char*)indices, sizeof(unsigned int)*meshHEADER.indexCount);
 }
 
+void FSHMesh::loadBlendshapes()
+{
+	blendShapes = new blendShape[meshHEADER.vertexCount * meshHEADER.blendshapesCount];
+	infile->read((char*)blendShapes, sizeof(blendShape)*meshHEADER.vertexCount * meshHEADER.blendshapesCount);
+}
+
 FSHMesh::FSHMesh(void) //NEEEEEEEEVER USE!
 {
 	//NEVER USE
@@ -29,6 +35,8 @@ FSHMesh::FSHMesh(std::ifstream *& infile)
 
 	this->loadVertexData();
 	this->loadIndices();
+	if (meshHEADER.blendshapesCount > 0)
+		this->loadBlendshapes();
 	
 }
 
@@ -37,6 +45,7 @@ FSHMesh::~FSHMesh(void)
 	//if (this->vertexVector!=nullptr)
 	delete[] indices;
 	delete[] vertices;
+	delete[] blendShapes;
 }
 
 
@@ -64,6 +73,11 @@ unsigned int * FSHMesh::GetIndices()
 unsigned int FSHMesh::getIndexCount()
 {
 	return this->meshHEADER.indexCount;
+}
+
+blendShape * FSHMesh::GetBlendShapes()
+{
+	return blendShapes;
 }
 
 

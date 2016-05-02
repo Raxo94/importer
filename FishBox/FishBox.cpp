@@ -125,6 +125,16 @@ texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
 	}
 }
 
+FSHData::blendShape * FishBox::meshBlendShapes(unsigned int model, unsigned int mesh)
+{
+	if (model >= SceneList.size() || mesh > SceneList[model].GetMeshCount())
+	{
+		printf("No model or mesh at index");
+	}
+
+	return SceneList[model].GetMeshList()[mesh]->GetBlendShapes();
+}
+
 void FishBox::clean() //cleans texture memory of all textures, use only after the textureData has been assigned
 {
 	for (int i = 0; i < extraTextures.size(); i++)
