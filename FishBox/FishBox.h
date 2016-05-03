@@ -59,9 +59,9 @@ namespace FSHData
 	};
 	struct vertexData
 	{
-		float pos[3];
-		float normal[3];
-		float uv[2];
+		glm::vec3 pos;
+		glm::vec3 normal;
+		glm::vec2 uv;
 	};
 	struct index
 	{
@@ -69,7 +69,7 @@ namespace FSHData
 	};
 	struct blendShape
 	{
-		float pos[3];
+		glm::vec3 pos;
 	};
 	struct material
 	{
