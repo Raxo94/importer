@@ -87,6 +87,7 @@ std::vector<std::string> FSHScene::GetTexureNameList()
 
 void FSHScene::Release()
 {
+
 	for (int i = 0; i < materials.size(); i++)
 	{
 		delete materials.at(i);

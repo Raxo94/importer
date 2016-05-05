@@ -17,10 +17,13 @@ void FSHMesh::loadIndices()
 
 void FSHMesh::loadBlendshapes()
 {
-	blendShapes = new blendShape[meshHEADER.vertexCount * meshHEADER.blendshapesCount];
-	infile->read((char*)blendShapes, sizeof(blendShape)*meshHEADER.vertexCount * meshHEADER.blendshapesCount);
+	this->blendShapes = new blendShape*[meshHEADER.blendshapesCount];
+	for (int i = 0; i < meshHEADER.blendshapesCount; i++)
+	{
+		this->blendShapes[i] = new blendShape[meshHEADER.vertexCount];
+		infile->read((char*)blendShapes[i], sizeof(blendShape)*meshHEADER.vertexCount);
+	}
 }
-
 FSHMesh::FSHMesh(void) //NEEEEEEEEVER USE!
 {
 	//NEVER USE
@@ -45,6 +48,8 @@ FSHMesh::~FSHMesh(void)
 	//if (this->vertexVector!=nullptr)
 	delete[] indices;
 	delete[] vertices;
+	for (int i = 0; i < meshHEADER.blendshapesCount; i++)
+		delete[] blendShapes[i];
 	delete[] blendShapes;
 }
 
@@ -75,7 +80,7 @@ unsigned int FSHMesh::getIndexCount()
 	return this->meshHEADER.indexCount;
 }
 
-blendShape * FSHMesh::GetBlendShapes()
+blendShape ** FSHMesh::GetBlendShapes()
 {
 	return blendShapes;
 }

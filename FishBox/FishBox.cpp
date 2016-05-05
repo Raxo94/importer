@@ -46,7 +46,7 @@ void FishBox::MeshData(unsigned int model, unsigned int mesh, vertexData *&verte
 	{
 		printf("No model or mesh at index");
 	}
-
+	
 	vertexData = SceneList[model].GetMeshList()[mesh]->GetVertices();
 	indexData = SceneList[model].GetMeshList()[mesh]->GetIndices();
 }
@@ -125,7 +125,7 @@ texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
 	}
 }
 
-FSHData::blendShape * FishBox::meshBlendShapes(unsigned int model, unsigned int mesh)
+FSHData::blendShape ** FishBox::meshBlendShapes(unsigned int model, unsigned int mesh)
 {
 	if (model >= SceneList.size() || mesh > SceneList[model].GetMeshCount())
 	{
