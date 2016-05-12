@@ -8,16 +8,33 @@ FishBox::~FishBox()
 {
 	for (int i = 0; i < SceneList.size(); i++)
 		SceneList[i].Release();
+
+	for (int i = 0; i < textures.size(); i++)
+	{
+
+		delete[] textures.at(i)->textureData;
+
+		
+		delete textures[i];
+	}
+
 	return;
 }
 
 FishBox::FishBox()
 {
+	LoadTextures();
 	return;
 }
 
 void FishBox::release()
 {
+	for (int i = 0; i < textures.size(); i++)
+	{
+		delete textures[i]->textureData;
+		delete textures[i];
+	}
+
 	for (int i = 0; i < SceneList.size(); i++)
 		SceneList[i].Release();
 	return;
@@ -31,7 +48,7 @@ void FishBox::Test()
 void FishBox::LoadScene(char * filePath) //meshCount will be set to the amount of meshes in the scene
 {
 	FSHScene tempScene(filePath);
-
+	tempScene.setTextureList(textures, textureNames);
 	SceneList.push_back(tempScene);
 }
 
@@ -140,6 +157,18 @@ void FishBox::clean() //cleans texture memory of all textures, use only after th
 	for (int i = 0; i < extraTextures.size(); i++)
 		SOIL_free_image_data(extraTextures[i]->textureData);
 
+
+}
+
+void FishBox::freeTextures()
+{
+	//for (int i = 0; i < textures.size(); i++)
+	//	SOIL_free_image_data(textures[i]->textureData);
+	for (int i = 0; i < textures.size(); i++)
+	{
+		
+		delete[] textures[i]->textureData;
+	}
 }
 
 texture * FishBox::loadTexure(char* filepath)
@@ -149,4 +178,27 @@ texture * FishBox::loadTexure(char* filepath)
 
 	extraTextures.push_back(tempTex);
 	return tempTex;
+}
+
+void FishBox::LoadTextures()
+{
+	_finddata_t data;
+
+	int first = _findfirst("Models/Textures/*.FST", &data);
+	int next = 0;
+	while (next != -1)
+	{
+		std::string temp;
+		temp = data.name;
+		textureNames.push_back(temp.c_str());
+
+		next = _findnext(first, &data);
+
+		temp = "Models/Textures/" + temp;
+
+		FSHData::texture * tempTex = new texture;
+		tempTex->textureData = SOIL_load_image(temp.c_str(), &tempTex->width, &tempTex->height, 0, SOIL_LOAD_RGBA);
+
+		textures.push_back(tempTex);
+	}
 }

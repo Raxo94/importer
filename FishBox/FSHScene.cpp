@@ -43,6 +43,12 @@ void FSHScene::LoadTextures()
 }
 
 
+void FSHScene::setTextureList(std::vector<texture*> textures, std::vector<std::string> textureNames)
+{
+	this->textureNames = textureNames;
+	this->textures = textures;
+}
+
 FSHScene::FSHScene(char * filePath)
 {
 	infile = new std::ifstream;
@@ -52,9 +58,7 @@ FSHScene::FSHScene(char * filePath)
 
 	LoadMeshes();
 	LoadMaterials();
-	LoadTextures();
-
-
+	//LoadTextures();
 
 	infile->close();
 	delete infile;
@@ -98,10 +102,6 @@ void FSHScene::Release()
 	for (int i = 0; i < meshes.size(); i++)
 		delete meshes[i];
 	meshes.clear();
-	for (int i = 0; i < textures.size(); i++)
-	{
-			delete textures[i]->textureData;
-			delete textures[i];
-	}
+
 	textures.clear();
 }
