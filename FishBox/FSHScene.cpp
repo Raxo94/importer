@@ -43,6 +43,11 @@ void FSHScene::LoadTextures()
 }
 
 
+void FSHScene::setTextureIDs(std::vector<GLuint> textureIDs)
+{
+	this->textureIDs = textureIDs;
+}
+
 void FSHScene::setTextureList(std::vector<texture*> textures, std::vector<std::string> textureNames)
 {
 	this->textureNames = textureNames;
@@ -87,6 +92,11 @@ std::vector<texture*> FSHScene::GetTexureList()
 std::vector<std::string> FSHScene::GetTexureNameList()
 {
 	return textureNames;
+}
+
+std::vector<GLuint> FSHScene::GetTextureIDs()
+{
+	return textureIDs;
 }
 
 void FSHScene::Release()

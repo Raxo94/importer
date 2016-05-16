@@ -12,7 +12,7 @@ FishBox::~FishBox()
 	for (int i = 0; i < textures.size(); i++)
 	{
 
-		delete[] textures.at(i)->textureData;
+		//delete[] textures.at(i)->textureData;
 
 		
 		delete textures[i];
@@ -49,6 +49,7 @@ void FishBox::LoadScene(char * filePath) //meshCount will be set to the amount o
 {
 	FSHScene tempScene(filePath);
 	tempScene.setTextureList(textures, textureNames);
+	tempScene.setTextureIDs(textureIDs);
 	SceneList.push_back(tempScene);
 }
 
@@ -142,6 +143,28 @@ texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
 	}
 }
 
+GLuint FishBox::meshTextureID(unsigned int model, unsigned int mesh)
+{
+	for (int i = 0; i < SceneList[model].GetTexureNameList().size(); i++)
+	{
+
+		material * meshmaterial = meshMaterial(model, mesh);
+
+
+
+		//printf("\n");
+		//
+		//printf("\n%s", std::string(meshmaterial->textureFilePath).c_str());
+
+		//printf("\n");
+		if (std::string(std::string(meshmaterial->textureFilePath).c_str()).find(SceneList[model].GetTexureNameList()[i].c_str()) != std::string::npos)
+		{
+			//GLuint test = SceneList[model].GetTextureIDs()[i];
+			return SceneList[model].GetTextureIDs()[i];
+		}
+	}
+}
+
 FSHData::blendShape ** FishBox::meshBlendShapes(unsigned int model, unsigned int mesh)
 {
 	if (model >= SceneList.size() || mesh > SceneList[model].GetMeshCount())
@@ -186,10 +209,13 @@ void FishBox::LoadTextures()
 
 	int first = _findfirst("Models/Textures/*.FST", &data);
 	int next = 0;
+	int counter = 0;
 	while (next != -1)
 	{
 		std::string temp;
 		temp = data.name;
+		GLuint tempglu;
+		textureIDs.push_back(tempglu);
 		textureNames.push_back(temp.c_str());
 
 		next = _findnext(first, &data);
@@ -199,6 +225,19 @@ void FishBox::LoadTextures()
 		FSHData::texture * tempTex = new texture;
 		tempTex->textureData = SOIL_load_image(temp.c_str(), &tempTex->width, &tempTex->height, 0, SOIL_LOAD_RGBA);
 
+		glGenTextures(1, &textureIDs[counter]);
+		glBindTexture(GL_TEXTURE_2D, textureIDs[counter]);
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tempTex->width, tempTex->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, tempTex->textureData);
+
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
 		textures.push_back(tempTex);
+
+		SOIL_free_image_data(textures[counter]->textureData);
+		//delete[] textures[counter]->textureData;
+		counter++;
 	}
 }
