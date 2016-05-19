@@ -122,26 +122,7 @@ FSHData::material * FishBox::meshMaterial(unsigned int model, unsigned int mesh)
 
 }
 
-texture* FishBox::meshTexture(unsigned int model, unsigned int mesh)
-{
-	for (int i = 0; i < SceneList[model].GetTexureNameList().size(); i++)
-	{
 
-		material * meshmaterial = meshMaterial(model, mesh);
-
-
-
-		//printf("\n");
-		//
-		//printf("\n%s", std::string(meshmaterial->textureFilePath).c_str());
-
-		//printf("\n");
-		if (std::string(std::string(meshmaterial->textureFilePath).c_str()).find(SceneList[model].GetTexureNameList()[i].c_str()) != std::string::npos)
-		{
-			return SceneList[model].GetTexureList()[i];
-		}
-	}
-}
 
 GLuint FishBox::meshTextureID(unsigned int model, unsigned int mesh)
 {

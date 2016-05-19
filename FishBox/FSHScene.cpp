@@ -19,29 +19,6 @@ void FSHScene::LoadMaterials()
 	}
 }
 
-void FSHScene::LoadTextures()
-{
-	_finddata_t data;
-
-	int first = _findfirst("Models/Textures/*.FST", &data);
-	int next = 0;
-	while (next != -1)
-	{
-		std::string temp;
-		temp = data.name;
-		textureNames.push_back(temp.c_str());
-
-		next = _findnext(first, &data);
-
-		temp = "Models/Textures/" + temp;
-
-		FSHData::texture * tempTex = new texture;
-		tempTex->textureData = SOIL_load_image(temp.c_str(), &tempTex->width, &tempTex->height, 0, SOIL_LOAD_RGBA);
-
-		textures.push_back(tempTex);
-	}
-}
-
 
 void FSHScene::setTextureIDs(std::vector<GLuint> textureIDs)
 {
@@ -63,7 +40,6 @@ FSHScene::FSHScene(char * filePath)
 
 	LoadMeshes();
 	LoadMaterials();
-	//LoadTextures();
 
 	infile->close();
 	delete infile;
@@ -84,10 +60,6 @@ std::vector<material*> FSHScene::GetMaterialList()
 	return materials;
 }
 
-std::vector<texture*> FSHScene::GetTexureList()
-{
-	return textures;
-}
 
 std::vector<std::string> FSHScene::GetTexureNameList()
 {
