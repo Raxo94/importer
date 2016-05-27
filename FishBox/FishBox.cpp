@@ -156,6 +156,62 @@ FSHData::blendShape ** FishBox::meshBlendShapes(unsigned int model, unsigned int
 	return SceneList[model].GetMeshList()[mesh]->GetBlendShapes();
 }
 
+FSHData::camera * FishBox::CameraData(unsigned int model, unsigned int Camera)
+{
+	if (model >= SceneList.size() || Camera > SceneList[model].GetCameraCount())
+	{
+		printf("No model or camera at index");
+	}
+
+#pragma region prints
+	for (size_t i = 0; i < 3; i++)
+	{
+		printf("\nPosition %d: %f", i, SceneList[model].GetCameraList()[Camera]->pos[i]);
+	}
+
+	printf("\nroll  %f", SceneList[model].GetCameraList()[Camera]->roll);
+	
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		printf("\ntarget %d: %f", i, SceneList[model].GetCameraList()[Camera]->target[i]);
+	}
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		printf("\nUpVec  %d: %f", i, SceneList[model].GetCameraList()[Camera]->upVec[i]);
+	}
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		printf("\nfarPlane: %f", SceneList[model].GetCameraList()[Camera]->farPlane);
+	}
+	for (size_t i = 0; i < 3; i++)
+	{
+		printf("\nnearPlane: %f", SceneList[model].GetCameraList()[Camera]->nearPlane);
+	}
+	printf("\npixelRatio: %f\n", SceneList[model].GetCameraList()[Camera]->pixelRatio);
+
+
+#pragma endregion
+
+	return SceneList[model].GetCameraList()[Camera];
+}
+
+FSHData::directionalLight * FishBox::DirectionalLightLData(unsigned int model, unsigned int DirectionalLight)
+{
+	if (model >= SceneList.size() || DirectionalLight > SceneList[model].GetDirectionalLightCount())
+	{
+		printf("No model or DirectionalLight at index");
+	}
+
+#pragma region prints
+	
+#pragma endregion
+
+	return SceneList[model].GetDirectionalLightList()[DirectionalLight];
+}
+
 void FishBox::clean() //cleans texture memory of all textures, use only after the textureData has been assigned
 {
 	for (int i = 0; i < extraTextures.size(); i++)

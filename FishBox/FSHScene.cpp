@@ -10,6 +10,7 @@ void FSHScene::LoadMeshes()
 	}
 }
 
+
 void FSHScene::LoadMaterials()
 {
 	for (int i = 0; i < HEADER.materialCount; i++)
@@ -18,6 +19,25 @@ void FSHScene::LoadMaterials()
 		infile->read((char*)materials.at(i), sizeof(material));
 	}
 }
+
+void FSHScene::LoadCameras()
+{
+	for (int i = 0; i < HEADER.cameraCount; i++)
+	{
+		cameras.push_back(new camera);
+		infile->read((char*)cameras.at(i), sizeof(camera));
+	}
+}
+
+void FSHScene::LoadDirectionalLights()
+{
+	for (int i = 0; i < HEADER.directionalLightCount; i++)
+	{
+		directionalLights.push_back(new directionalLight);
+		infile->read((char*)directionalLights.at(i), sizeof(directionalLight));
+	}
+}
+
 
 
 void FSHScene::setTextureIDs(std::vector<GLuint> textureIDs)
@@ -40,7 +60,8 @@ FSHScene::FSHScene(char * filePath)
 
 	LoadMeshes();
 	LoadMaterials();
-
+	LoadCameras();
+	LoadDirectionalLights();
 	infile->close();
 	delete infile;
 }
@@ -48,6 +69,16 @@ FSHScene::FSHScene(char * filePath)
 unsigned int FSHScene::GetMeshCount()
 {
 	return HEADER.meshCount;
+}
+
+unsigned int FSHScene::GetCameraCount()
+{
+	return HEADER.cameraCount;
+}
+
+unsigned int FSHScene::GetDirectionalLightCount()
+{
+	return HEADER.directionalLightCount;
 }
 
 std::vector<FSHMesh*> FSHScene::GetMeshList()
@@ -70,6 +101,18 @@ std::vector<GLuint> FSHScene::GetTextureIDs()
 {
 	return textureIDs;
 }
+
+std::vector<camera*> FSHScene::GetCameraList()
+{
+	return cameras;
+}
+
+std::vector<directionalLight*> FSHScene::GetDirectionalLightList()
+{
+	return directionalLights;
+}
+
+
 
 void FSHScene::Release()
 {

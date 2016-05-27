@@ -97,9 +97,8 @@
       <AdditionalDependencies>freetype262.lib;FishBox.lib;glew32.lib;glew32s.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;OpenGL32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\FishBox\FishBox.h" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\include\FishBox.h"
-copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.dll" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\FishBox.dll"
-copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.lib" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\lib\FishBox.lib"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -135,9 +134,8 @@ copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.l
       <AdditionalDependencies>freetype262.lib;FishBox.lib;glew32.lib;glew32s.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;OpenGL32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\FishBox\FishBox.h" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\include\FishBox.h"
-copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.dll" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\FishBox.dll"
-copy "C:\Users\pc\Documents\Visual Studio 2015\Projects\importer\Debug\FishBox.lib" "C:\Users\pc\Documents\Visual Studio 2015\Projects\Fishy\ProjectSDL2.1\lib\FishBox.lib"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

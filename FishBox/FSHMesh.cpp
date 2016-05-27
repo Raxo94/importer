@@ -69,6 +69,8 @@ mesh * FSHMesh::GetMeshData()
 	return &meshHEADER;
 }
 
+
+
 unsigned int * FSHMesh::GetIndices()
 {
 	return indices;
